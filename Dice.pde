@@ -7,8 +7,11 @@ void setup(){
 
 void draw(){
 	background(0);
-	dice = new Die(50,50);
-	dice.show();
+	for (int i = 50; i < 400; i+=60) {
+		dice = new Die(i,50);
+		dice.show();
+	}
+	
 }
 
 void mousePressed(){
@@ -55,8 +58,48 @@ class Die{
 	void show(){
 		//your code here
 		fill(255);
-		ellipse(myX, myY, 50, 50);
-		fill(0);
-		text(randomRoll, 50, 50);
+		rect(myX, myY, 50, 50);
+		// fill(0);
+		// text(randomRoll, 75, 75);
+
+		if (randomRoll == 1){
+			fill(0);
+			ellipse(myX+25, myY+25, 10, 10);
+		}
+		else if (randomRoll == 2) {
+			fill(0);
+			ellipse(myX+12, myY+12, 10, 10);
+			ellipse(myY+37, myY+37, 10, 10);
+		}
+		else if (randomRoll == 3) {
+			fill(0);
+			ellipse(myX+12, myY+12, 10, 10);
+			ellipse(myY+37, myY+37, 10, 10);
+			ellipse(myX+25, myY+25, 10, 10);
+		}
+		else if (randomRoll == 4) {
+			fill(0);
+			ellipse(myX+12, myY+12, 10, 10);
+			ellipse(myX+37, myY+12, 10, 10);
+			ellipse(myX+37, myY+37, 10, 10);
+			ellipse(myX+12, myY+37, 10, 10);
+		}
+		else if (randomRoll == 5) {
+			fill(0);
+			ellipse(myX+12, myY+12, 10, 10);
+			ellipse(myX+37, myY+12, 10, 10);
+			ellipse(myX+37, myY+37, 10, 10);
+			ellipse(myX+12, myY+37, 10, 10);
+			ellipse(myX+25, myY+25, 10, 10);
+		}
+		else{
+			fill(0);
+			ellipse(myX+12, myY+12, 10, 10);
+			ellipse(myX+37, myY+12, 10, 10);
+			ellipse(myX+12, myY+25, 10, 10);
+			ellipse(myX+37, myY+25, 10, 10);
+			ellipse(myX+12, myY+37, 10, 10);
+			ellipse(myX+37, myY+37, 10, 10);
+		}
 	}
 }
