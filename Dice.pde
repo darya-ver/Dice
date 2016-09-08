@@ -1,4 +1,7 @@
 Die dice;
+int totalScore = 0;
+int highScore = 0;
+int lowScore = 0;
 
 void setup(){
 	size(500,500);
@@ -10,8 +13,22 @@ void draw(){
 	for (int i = 50; i < 400; i+=60) {
 		dice = new Die(i,50);
 		dice.show();
+		totalScore += dice.randomRoll;
 	}
-	
+
+	fill(255);
+	text("total score: "+totalScore, 250,250);
+	if (highScore < totalScore){
+		highScore = totalScore;
+	}
+	if (lowScore > totalScore){
+		lowScore = totalScore;
+	}
+	text("high: "+highScore, 250, 400);
+	text("low: " + lowScore, 260, 350);
+	totalScore = 0;
+
+
 }
 
 void mousePressed(){
@@ -69,13 +86,14 @@ class Die{
 		else if (randomRoll == 2) {
 			fill(0);
 			ellipse(myX+12, myY+12, 10, 10);
-			ellipse(myY+37, myY+37, 10, 10);
+			ellipse(myX+37, myY+37, 10, 10);
+			
 		}
 		else if (randomRoll == 3) {
 			fill(0);
 			ellipse(myX+12, myY+12, 10, 10);
-			ellipse(myY+37, myY+37, 10, 10);
 			ellipse(myX+25, myY+25, 10, 10);
+			ellipse(myX+37, myY+37, 10, 10);
 		}
 		else if (randomRoll == 4) {
 			fill(0);
