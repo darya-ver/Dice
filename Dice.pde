@@ -1,7 +1,7 @@
 Die dice;
 int totalScore = 0;
 int highScore = 0;
-int lowScore = 0;
+int lowScore = 100;
 
 void setup(){
 	size(500,500);
@@ -10,21 +10,28 @@ void setup(){
 
 void draw(){
 	background(0);
-	for (int i = 50; i < 400; i+=60) {
-		dice = new Die(i,50);
-		dice.show();
-		totalScore += dice.randomRoll;
+	
+	for (int j=50; j<=250; j+=80){
+		for (int i = 50; i < 450; i+=60) {
+			dice = new Die(i,j);
+			dice.show();
+			totalScore += dice.randomRoll;
+		}
 	}
+		
 
 	fill(255);
-	text("total score: "+totalScore, 250,250);
+	text("total score: "+ totalScore, 250,250);
+	
 	if (highScore < totalScore){
 		highScore = totalScore;
 	}
+	
 	if (lowScore > totalScore){
 		lowScore = totalScore;
 	}
-	text("high: "+highScore, 250, 400);
+	
+	text("high: "+ highScore, 250, 400);
 	text("low: " + lowScore, 260, 350);
 	totalScore = 0;
 
@@ -74,36 +81,34 @@ class Die{
 
 	void show(){
 		//your code here
-		fill(255);
-		rect(myX, myY, 50, 50);
-		// fill(0);
-		// text(randomRoll, 75, 75);
+		fill((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+		rect(myX, myY, 50, 50, 7);
 
 		if (randomRoll == 1){
-			fill(0);
+			fill(255);
 			ellipse(myX+25, myY+25, 10, 10);
 		}
 		else if (randomRoll == 2) {
-			fill(0);
+			fill(255);
 			ellipse(myX+12, myY+12, 10, 10);
 			ellipse(myX+37, myY+37, 10, 10);
 			
 		}
 		else if (randomRoll == 3) {
-			fill(0);
+			fill(255);
 			ellipse(myX+12, myY+12, 10, 10);
 			ellipse(myX+25, myY+25, 10, 10);
 			ellipse(myX+37, myY+37, 10, 10);
 		}
 		else if (randomRoll == 4) {
-			fill(0);
+			fill(255);
 			ellipse(myX+12, myY+12, 10, 10);
 			ellipse(myX+37, myY+12, 10, 10);
 			ellipse(myX+37, myY+37, 10, 10);
 			ellipse(myX+12, myY+37, 10, 10);
 		}
 		else if (randomRoll == 5) {
-			fill(0);
+			fill(255);
 			ellipse(myX+12, myY+12, 10, 10);
 			ellipse(myX+37, myY+12, 10, 10);
 			ellipse(myX+37, myY+37, 10, 10);
@@ -111,7 +116,7 @@ class Die{
 			ellipse(myX+25, myY+25, 10, 10);
 		}
 		else{
-			fill(0);
+			fill(255);
 			ellipse(myX+12, myY+12, 10, 10);
 			ellipse(myX+37, myY+12, 10, 10);
 			ellipse(myX+12, myY+25, 10, 10);
