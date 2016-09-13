@@ -9,30 +9,33 @@ void setup(){
 }
 
 void draw(){
-	background(0);
+	background(100);
 	
-	for (int j=50; j<=250; j+=80){
+	for (int j=50; j<=310; j+=80){
 		for (int i = 50; i < 450; i+=60) {
 			dice = new Die(i,j);
 			dice.show();
 			totalScore += dice.randomRoll;
 		}
 	}
-		
+	
+	fill(155);
+	rect(0, 450, 500, 50);
 
 	fill(255);
-	text("total score: "+ totalScore, 250,250);
+	textSize(30);
+	text("Total Score: "+ totalScore, 125,483);
 	
-	if (highScore < totalScore){
-		highScore = totalScore;
-	}
+	// if (highScore < totalScore){
+	// 	highScore = totalScore;
+	// }
 	
-	if (lowScore > totalScore){
-		lowScore = totalScore;
-	}
+	// if (lowScore > totalScore){
+	// 	lowScore = totalScore;
+	// }
 	
-	text("high: "+ highScore, 250, 400);
-	text("low: " + lowScore, 260, 350);
+	// text("high: "+ highScore, 250, 400);
+	// text("low: " + lowScore, 260, 350);
 	totalScore = 0;
 
 
@@ -83,6 +86,8 @@ class Die{
 		//your code here
 		fill((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
 		rect(myX, myY, 50, 50, 7);
+
+		strokeWeight(3);
 
 		if (randomRoll == 1){
 			fill(255);
