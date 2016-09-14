@@ -14,7 +14,7 @@ int num4s = 0;
 int num5s = 0;
 int num6s = 0;
 
-int numToGetTo = 8;
+int numToGetTo = 10;
 
 void setup(){
 	size(500,500);
@@ -25,7 +25,7 @@ void draw(){
 	background(100);
 	
 	textSize(40);
-	text("Try to get 8 of a kind", 40, 60);
+	text("Try to get 10 of a kind", 40, 60);
 
 	for (int j=80; j<=340; j+=80){
 		for (int i = 50; i < 450; i+=60) {
@@ -60,6 +60,7 @@ void draw(){
 	fill(255);
 	textSize(30);
 	text("Tries: "+ numTries, 125,483);
+
 	// text("Total Score: "+ totalScore, 125,483);
 
 
@@ -74,35 +75,36 @@ void draw(){
 
 	if (num1s >= numToGetTo){
 		textSize(70);
-		text("You Won!!", 150, 250);
+		text("You Won!!", 100, 250);
 		numWins += 1;
 	}
 	else if (num5s >= numToGetTo){
 		textSize(70);
-		text("You Won!!", 150, 250);
+		text("You Won!!", 100, 250);
 		numWins += 1;
 	}
 	else if (num2s >= numToGetTo){
 		textSize(70);
-		text("You Won!!", 150, 250);
+		text("You Won!!", 100, 250);
 		numWins += 1;
 	}
 	else if (num3s >= numToGetTo){
 		textSize(70);
-		text("You Won!!", 150, 250);
+		text("You Won!!", 100, 250);
 		numWins += 1;
 	}
 	else if (num4s >= numToGetTo){
 		textSize(70);
-		text("You Won!!", 150, 250);
+		text("You Won!!", 100, 250);
 		numWins += 1;
 	}
 	else if (num6s >= numToGetTo){
 		textSize(70);
-		text("You Won!!", 150, 250);
+		text("You Won!!", 100, 250);
 		numWins += 1;
 	}
 	
+	textSize(30);
 	text("Wins: "+ numWins, 300,483);
 
 	totalScore = 0;
